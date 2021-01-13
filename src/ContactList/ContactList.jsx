@@ -1,5 +1,5 @@
 import ContactItem from "./ContactItem";
-import PropTypes, { number } from "prop-types";
+import PropTypes from "prop-types";
 
 export default function ContactList({ contacts, filter, onDelateContacts }) {
   return (
@@ -21,7 +21,6 @@ export default function ContactList({ contacts, filter, onDelateContacts }) {
 }
 
 ContactList.defaultProps = {
-  // contacts: null,
   filter: "",
 };
 
