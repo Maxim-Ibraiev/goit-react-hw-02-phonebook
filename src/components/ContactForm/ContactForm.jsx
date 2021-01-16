@@ -1,17 +1,17 @@
-import { Component } from "react";
-import PropTypes from "prop-types";
+import { Component } from 'react';
+import PropTypes from 'prop-types';
 
 const INITIAL_STATE = {
-  name: "",
-  number: "",
+  name: '',
+  number: '',
 };
 
 export default class ContactForm extends Component {
   constructor() {
     super();
     this.state = {
-      name: "",
-      number: "",
+      name: '',
+      number: '',
     };
   }
 
@@ -26,10 +26,14 @@ export default class ContactForm extends Component {
     this.setState({ [name]: value });
   };
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
 
     const { name, number } = this.state;
+    const { contacts } = this.props;
+
+    if (contacts.find(contact => contact.name === name))
+      return alert(`${name} is already in contacts`);
 
     this.props.onSetContacts(name, number);
     this.reset();

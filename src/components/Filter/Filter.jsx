@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 export default function Filter({ filter, onChange }) {
   return (
@@ -18,7 +18,7 @@ export default function Filter({ filter, onChange }) {
 }
 
 Filter.defaultProps = {
-  filter: "",
+  filter: '',
 };
 
 Filter.propTypes = {

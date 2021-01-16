@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 export default function ContactItem({ contact, filter, onDelateContacts }) {
   const { id, name, number } = contact;
@@ -16,7 +16,7 @@ export default function ContactItem({ contact, filter, onDelateContacts }) {
 }
 
 ContactItem.defaultProps = {
-  filter: "",
+  filter: '',
 };
 
 ContactItem.propTypes = {

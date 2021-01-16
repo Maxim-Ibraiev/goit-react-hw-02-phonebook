@@ -1,12 +1,12 @@
-import ContactItem from "./ContactItem";
-import PropTypes from "prop-types";
+import ContactItem from './ContactItem';
+import PropTypes from 'prop-types';
 
 export default function ContactList({ contacts, filter, onDelateContacts }) {
   return (
     <>
       {contacts[0] && (
         <ul>
-          {contacts.map((contact) => (
+          {contacts.map(contact => (
             <ContactItem
               key={contact.id}
               contact={contact}
@@ -21,7 +21,7 @@ export default function ContactList({ contacts, filter, onDelateContacts }) {
 }
 
 ContactList.defaultProps = {
-  filter: "",
+  filter: '',
 };
 
 ContactList.propTypes = {

@@ -1,30 +1,27 @@
-import { Component } from "react";
-import ContactForm from "../ContactForm/ContactForm";
-import ContactList from "../ContactList/ContactList";
-import Filter from "../Filter/Filter";
-import { v4 as uuIdv4 } from "uuid";
+import { Component } from 'react';
+import ContactForm from '../ContactForm/ContactForm';
+import ContactList from '../ContactList/ContactList';
+import Filter from '../Filter/Filter';
+import { v4 as uuIdv4 } from 'uuid';
 
 class App extends Component {
   state = {
     contacts: [],
-    filter: "",
+    filter: '',
   };
 
   handleSetContacts(name, number) {
-    this.setState((prevState) => {
+    this.setState(prevState => {
       const { contacts } = prevState;
-
-      if (contacts.find((contact) => contact.name === name))
-        return alert(`${name} is already in contacts`);
 
       return { contacts: [...contacts, { id: uuIdv4(), name, number }] };
     });
   }
 
   handleDelateContacts(id) {
-    this.setState((prevState) => {
+    this.setState(prevState => {
       const { contacts } = prevState;
-      const updatedContacts = contacts.filter((contact) => contact.id !== id);
+      const updatedContacts = contacts.filter(contact => contact.id !== id);
 
       return { contacts: [...updatedContacts] };
     });
@@ -43,8 +40,9 @@ class App extends Component {
       <div>
         <h1>Phonebook</h1>
         <ContactForm
+          contacts={contacts}
           onSubmit={this.handleSubmit}
-          onSetContacts={this.handleSetContacts.bind(this)}
+          onSetContacts={(name, number) => this.handleSetContacts(name, number)}
         />
 
         <h2>Contacts</h2>
@@ -52,7 +50,7 @@ class App extends Component {
         <ContactList
           contacts={contacts}
           filter={filter}
-          onDelateContacts={this.handleDelateContacts.bind(this)}
+          onDelateContacts={id => this.handleDelateContacts(id)}
         />
       </div>
     );
