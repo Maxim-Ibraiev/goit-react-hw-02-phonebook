@@ -13,8 +13,13 @@ class App extends Component {
   handleSetContacts(name, number) {
     this.setState(prevState => {
       const { contacts } = prevState;
+      const newContact = {
+        id: uuIdv4(),
+        name,
+        number,
+      };
 
-      return { contacts: [...contacts, { id: uuIdv4(), name, number }] };
+      return { contacts: [...contacts, newContact] };
     });
   }
 
